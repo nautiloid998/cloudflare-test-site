@@ -37,8 +37,8 @@
         .profile-image {
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* Makes the image round */
-            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 20px;
             border: 3px solid #007bff;
         }
@@ -61,16 +61,34 @@
 </head>
 <body>
     <div class="container">
-    <img src="https://placedog.net/500" alt="Bob Boberson Profile" class="profile-image">   
+        <!-- Using the reliable placeholder dog -->
+        <img src="https://placedog.net/500" alt="Bob Boberson Profile" class="profile-image">
         
         <h1>Bob Boberson</h1>
         <h2>Top Dog</h2>
         <p>I am the top dog. Nobody is topper than me.</p>
         <div class="social-links">
-            </div>
+        </div>
         <footer>
-            &copy; 2025 Bob Boberson. All rights reserved.
+            &copy; 2026 Bob Boberson. All rights reserved.
         </footer>
     </div>
+
+    <!-- Fingerprint Device Intelligence Installation -->
+    <script>
+      // Initialize the agent at application startup.
+      const fpPromise = import('https://fpjscdn.net/v4/l8ufpvJvw4hGR4uxdmYh')
+        .then(Fingerprint => Fingerprint.start({ region: 'us' }))
+
+      // Get the visitor and event identifier when you need it.
+      fpPromise
+        .then(fp => fp.get())
+        .then(result => {
+            // Logs the IDs to your browser console
+            console.log("Fingerprint Event ID:", result.event_id);
+            console.log("Fingerprint Visitor ID:", result.visitor_id);
+        })
+        .catch(error => console.error("Fingerprint error:", error));
+    </script>
 </body>
 </html>
